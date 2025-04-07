@@ -219,15 +219,3 @@ If you find this extension helpful, please consider:
 - Share with your network
 - Contribute to the codebase
 
-## 🔒 Security
-
-- API keys are stored securely in VS Code settings
-- No data is collected or transmitted except for API calls
-- All code analysis is performed locally when possible
-- Network calls are made only to Google's Generative AI API
-
----
-
-**Made with ❤️ by the Pravega Team**
-
-[Report Bug](https://github.com/yourusername/pravega-code-guide/issues) · [Request Feature](https://github.com/yourusername/pravega-code-guide/issues)
