@@ -2,7 +2,8 @@
 
 A powerful VS Code extension powered by Google's Generative AI (Gemini) that brings advanced AI-powered coding assistance right to your editor. This extension leverages cutting-edge language models to help you write, understand, and maintain code more efficiently.
 
-![image](https://github.com/user-attachments/assets/0ecb5822-8080-4a78-8477-c1d82e8c87d3)
+![image](https://github.com/user-attachments/assets/62aa25fc-4703-43de-85a8-31923e27fe92)
+
 
 
 ## 🌟 Core Features
