@@ -1,0 +1,129 @@
+{
+  "name": "ai-bot",
+  "displayName": "Pravega Code Guide",
+  "description": "VS Code extension for coding assistance",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Programming Languages"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pravega-bot.focusChat",
+        "title": "Pravega: Focus Chat"
+      },
+      {
+        "command": "pravega-bot.clearChat",
+        "title": "Pravega: Clear Chat History"
+      },
+      {
+        "command": "pravega-bot.stopGeneration",
+        "title": "Pravega: Stop Generation"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pravega-bot.focusChat",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a"
+      },
+      {
+        "command": "pravega-bot.stopGeneration",
+        "key": "ctrl+shift+s",
+        "mac": "cmd+shift+s",
+        "when": "focusedView == pravega-bot.chatView"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pravega-bot-sidebar",
+          "title": "Pravega-AI",
+          "icon": "$(sparkle)"
+        }
+      ]
+    },
+    "views": {
+      "pravega-bot-sidebar": [
+        {
+          "type": "webview",
+          "id": "pravega-bot.chatView",
+          "name": "Coding Assistant",
+          "icon": "$(code)"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Pravega Code Guide",
+      "properties": {
+        "pravegaCodeGuide.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for Google's Generative AI"
+        },
+        "pravegaCodeGuide.modelName": {
+          "type": "string",
+          "default": "gemini-2.0-flash-thinking-exp-01-21",
+          "description": "Model name to use for coding assistance"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run test:compile",
+    "lint": "eslint src --ext ts",
+    "test": "node --no-warnings ./out/test/runTest.js",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "nyc npm run test",
+    "test:compile": "tsc -p ./",
+    "clean": "rimraf out && rimraf testWorkspace"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "chalk": "^4.1.2",
+    "eslint": "^8.56.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "rimraf": "^5.0.10",
+    "source-map-support": "^0.5.21",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.3.3"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "out",
+      "coverage"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "all": true
+  },
+  "dependencies": {
+    "docx": "^9.2.0",
+    "file-saver": "^2.0.5",
+    "jspdf": "^3.0.0"
+  }
+}
